@@ -33,10 +33,14 @@ INSTALLED_APPS = [
     # modules
     'rest_framework',
     'rest_framework.authtoken',
+    'knox',
+    'django_rest_passwordreset',
     
     # custom apps
     'applications.account',
     'applications.category',
+    'applications.product',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +133,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 2,
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ]
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
