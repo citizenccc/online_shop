@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'applications.category',
     'applications.product',
     'django_filters',
+    'applications.order',
+    'applications.review',
 ]
 
 MIDDLEWARE = [
